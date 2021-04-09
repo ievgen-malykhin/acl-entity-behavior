@@ -7,7 +7,9 @@
 
 namespace Spryker\Zed\AclEntity\Persistence;
 
+use Generated\Shared\Transfer\AclEntityRuleTransfer;
 use Generated\Shared\Transfer\AclEntitySegmentTransfer;
+use Orm\Zed\AclEntity\Persistence\SpyAclEntityRule;
 use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
 
 /**
@@ -38,5 +40,25 @@ class AclEntityEntityManager extends AbstractEntityManager implements AclEntityE
         $aclEntitySegmentTransfer->fromArray($spyAclEntitySegment->toArray(), false);
 
         return $aclEntitySegmentTransfer;
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param \Generated\Shared\Transfer\AclEntityRuleTransfer $aclEntityRuleTransfer
+     *
+     * @return \Generated\Shared\Transfer\AclEntityRuleTransfer
+     */
+    public function createAclEntityRule(AclEntityRuleTransfer $aclEntityRuleTransfer): AclEntityRuleTransfer
+    {
+        $spyAclEntityRule = $this->getFactory()
+            ->createAclEntityRuleMapper()
+            ->mapAclEntityRuleTransferToEntity($aclEntityRuleTransfer, new SpyAclEntityRule());
+
+        $spyAclEntityRule->save();
+
+        $aclEntityRuleTransfer->fromArray($spyAclEntityRule->toArray(), false);
+
+        return $aclEntityRuleTransfer;
     }
 }

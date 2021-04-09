@@ -7,6 +7,8 @@
 
 namespace Spryker\Zed\AclEntity\Business;
 
+use Generated\Shared\Transfer\AclEntityRuleResponseTransfer;
+use Generated\Shared\Transfer\AclEntityRuleTransfer;
 use Generated\Shared\Transfer\AclEntitySegmentResponseTransfer;
 use Generated\Shared\Transfer\AclEntitySegmentTransfer;
 
@@ -23,4 +25,16 @@ interface AclEntityFacadeInterface
      * @return \Generated\Shared\Transfer\AclEntitySegmentResponseTransfer
      */
     public function createAclEntitySegment(AclEntitySegmentTransfer $aclEntitySegmentTransfer): AclEntitySegmentResponseTransfer;
+
+    /**
+     * Specification:
+     * - Creates an acl entity rule
+     *
+     * @api
+     *
+     * @param \Generated\Shared\Transfer\AclEntityRuleTransfer $aclEntityRuleTransfer
+     *
+     * @return \Generated\Shared\Transfer\AclEntityRuleResponseTransfer
+     */
+    public function createAclEntityRule(AclEntityRuleTransfer $aclEntityRuleTransfer): AclEntityRuleResponseTransfer;
 }

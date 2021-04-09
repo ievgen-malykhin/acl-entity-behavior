@@ -7,6 +7,8 @@
 
 namespace Spryker\Zed\AclEntity\Business;
 
+use Generated\Shared\Transfer\AclEntityRuleResponseTransfer;
+use Generated\Shared\Transfer\AclEntityRuleTransfer;
 use Generated\Shared\Transfer\AclEntitySegmentResponseTransfer;
 use Generated\Shared\Transfer\AclEntitySegmentTransfer;
 use Spryker\Zed\Kernel\Business\AbstractFacade;
@@ -30,5 +32,19 @@ class AclEntityFacade extends AbstractFacade implements AclEntityFacadeInterface
     public function createAclEntitySegment(AclEntitySegmentTransfer $aclEntitySegmentTransfer): AclEntitySegmentResponseTransfer
     {
         return $this->getFactory()->createAclEntitySegment()->create($aclEntitySegmentTransfer);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @api
+     *
+     * @param \Generated\Shared\Transfer\AclEntityRuleTransfer $aclEntityRuleTransfer
+     *
+     * @return \Generated\Shared\Transfer\AclEntityRuleResponseTransfer
+     */
+    public function createAclEntityRule(AclEntityRuleTransfer $aclEntityRuleTransfer): AclEntityRuleResponseTransfer
+    {
+        return $this->getFactory()->createAclEntityRuleWriter()->create($aclEntityRuleTransfer);
     }
 }

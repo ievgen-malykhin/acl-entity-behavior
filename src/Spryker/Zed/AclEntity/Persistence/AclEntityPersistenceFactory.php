@@ -80,9 +80,17 @@ class AclEntityPersistenceFactory extends AbstractPersistenceFactory
     }
 
     /**
-     * @return \src\Spryker\Zed\AclEntity\Persistence\Propel\Mapper\AclEntityRuleMapperInterface
+     * @return \Spryker\Zed\AclEntity\Persistence\Propel\Mapper\AclEntityRuleMapper
      */
-    public function createPropelAclEntityRuleMapper(): AclEntityRuleMapperInterface
+    public function createAclEntityRuleMapper(): AclEntityRuleMapper
+    {
+        return new AclEntityRuleMapper();
+    }
+
+    /**
+     * @return \Spryker\Zed\AclEntity\Persistence\Propel\Mapper\AclEntityRuleMapper
+     */
+    public function createPropelAclEntityRuleMapper(): AclEntityRuleMapper
     {
         return new AclEntityRuleMapper();
     }

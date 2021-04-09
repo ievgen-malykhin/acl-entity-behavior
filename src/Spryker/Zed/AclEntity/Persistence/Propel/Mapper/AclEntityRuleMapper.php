@@ -12,7 +12,7 @@ use Generated\Shared\Transfer\AclEntityRuleTransfer;
 use Orm\Zed\AclEntity\Persistence\SpyAclEntityRule;
 use Propel\Runtime\Collection\Collection;
 
-class AclEntityRuleMapper implements AclEntityRuleMapperInterface
+class AclEntityRuleMapper
 {
     /**
      * @param \Orm\Zed\AclEntity\Persistence\SpyAclEntityRule $aclEntityRule
@@ -39,7 +39,8 @@ class AclEntityRuleMapper implements AclEntityRuleMapperInterface
     public function mapAclEntityRuleCollectionToAclEntityRuleCollectionTransfer(
         Collection $aclEntityRuleEntities,
         AclEntityRuleCollectionTransfer $transfer
-    ): AclEntityRuleCollectionTransfer {
+    ): AclEntityRuleCollectionTransfer
+    {
         /** @var \Orm\Zed\AclEntity\Persistence\SpyAclEntityRule $aclEntityRuleEntity */
         foreach ($aclEntityRuleEntities as $aclEntityRuleEntity) {
             $transfer->addAclEntityRule(
@@ -48,5 +49,18 @@ class AclEntityRuleMapper implements AclEntityRuleMapperInterface
         }
 
         return $transfer;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\AclEntityRuleTransfer $transfer
+     * @param  \Orm\Zed\AclEntity\Persistence\SpyAclEntityRule $entity
+     *
+     * @return \Orm\Zed\AclEntity\Persistence\SpyAclEntityRule
+     */
+    public function mapAclEntityRuleTransferToEntity(AclEntityRuleTransfer $transfer, SpyAclEntityRule $entity): SpyAclEntityRule
+    {
+        $entity->fromArray($transfer->toArray(false));
+
+        return $entity;
     }
 }

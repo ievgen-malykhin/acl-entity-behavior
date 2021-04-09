@@ -7,6 +7,7 @@
 
 namespace Spryker\Zed\AclEntity\Persistence;
 
+use Generated\Shared\Transfer\AclEntityRuleTransfer;
 use Generated\Shared\Transfer\AclEntitySegmentTransfer;
 
 interface AclEntityEntityManagerInterface
@@ -22,4 +23,14 @@ interface AclEntityEntityManagerInterface
      * @return \Generated\Shared\Transfer\AclEntitySegmentTransfer
      */
     public function saveAclEntitySegment(AclEntitySegmentTransfer $aclEntitySegmentTransfer): AclEntitySegmentTransfer;
+
+    /**
+     * Specification:
+     * - Create `AclEntityRule` entity.
+     *
+     * @param \Generated\Shared\Transfer\AclEntityRuleTransfer $aclEntityRuleTransfer
+     *
+     * @return \Generated\Shared\Transfer\AclEntityRuleTransfer
+     */
+    public function createAclEntityRule(AclEntityRuleTransfer $aclEntityRuleTransfer): AclEntityRuleTransfer;
 }

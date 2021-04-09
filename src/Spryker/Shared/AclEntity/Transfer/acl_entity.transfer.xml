@@ -25,6 +25,11 @@
         <property name="isSuccess" type="bool"/>
     </transfer>
 
+    <transfer name="AclEntityRuleResponse">
+        <property name="aclEntityRule" type="AclEntityRule"></property>
+        <property name="isSuccess" type="bool"></property>
+    </transfer>
+
     <transfer name="AclEntityMetadata">
         <property name="entityName" type="string"/>
         <property name="defaultGlobalOperationMask" type="int"/>

@@ -11,4 +11,18 @@ coverage:
     remote: false
     whitelist: { include: ['../../../../src/*'] }
 
-suites: []
+suites:
+    Persistence:
+        path: Persistence
+        class_name: AclEntityBehaviorPersistenceTester
+        modules:
+            enabled:
+                - Asserts
+                - \SprykerTest\Shared\User\Helper\UserDataHelper
+                - \SprykerTest\Zed\Acl\Helper\AclHelper
+#                - \SprykerTest\Zed\AclEntity\Helper\AclEntityHelper
+#                - \SprykerTest\Shared\Testify\Helper\Environment
+#                - \SprykerTest\Shared\Testify\Helper\ConfigHelper
+#                - \SprykerTest\Shared\Testify\Helper\LocatorHelper
+#                - \SprykerTest\Shared\Testify\Helper\DependencyHelper
+#                - \SprykerTest\Shared\Propel\Helper\TransactionHelper
